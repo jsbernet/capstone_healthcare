@@ -5,7 +5,8 @@ install.packages('tidyverse')
 install.packages("gridExtra")
 install.packages('psych')
 install.packages('ggmap')
-
+install.packages('GGally')
+install.packages('cdata')
 
 library(tidyverse)
 library(plyr)
@@ -15,6 +16,8 @@ library(gridExtra)
 library(psych)
 library(ggmap)
 library(dplyr)
+library(GGally)
+library(cdata)
 
 # set working directory
 setwd("C:/Users/jmr411")
@@ -37,20 +40,29 @@ head(cardio_stats)
 summary(cardio_stats)
 
 
-# examine the datatype of the columns in the dataframe
-str(cardio_stats)
-
-# median, mad, min, max, skew, kurtosis, se
+# examine the datatype of the
 describe(cardio_stats)
 
-#BMI quartile analysis
+#BMI quartile analysis.  
+#We will remove anything above the 99.5th percentile
 BMI <- cardio_stats$BMI
 quantile(BMI, c(.8, .85, .9, .95, .98, .99, .995))
 
+bar1 <- ggplot(cardio_stats) +
+  geom_point( aes(x = weight_lb, y= age_years) ) +
+  ggtitle("Number of houses per Lotshape") +
+  theme(plot.title=element_text(lineheight=0.8, face="bold", hjust=0.5))
+bar1
 
 set.seed(1234)
 hist1 <- ggplot(cardio_stats, aes(x=BMI)) + geom_histogram()
 hist1
+
+test1 <- ggplot(cardio_stats, aes(x=weight_lb, y=age_years)) + 
+  geom_boxplot(color="blue", shape=1) +
+  ggtitle("Scatter Plot of Total Floor SF vs QualityIndex") +
+  theme(plot.title=element_text(lineheight=0.6, face="bold", hjust=0.5))
+test1
 
 # adjust data to generate counts 
 dam1 <- count(cardio_stats, c("cardio", "gender"))
