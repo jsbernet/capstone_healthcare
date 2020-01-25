@@ -7,6 +7,7 @@ install.packages('psych')
 install.packages('ggmap')
 install.packages('GGally')
 install.packages('cdata')
+install.package('corrplot')
 
 library(tidyverse)
 library(plyr)
@@ -18,6 +19,8 @@ library(ggmap)
 library(dplyr)
 library(GGally)
 library(cdata)
+library(corrplot)
+
 
 # set working directory
 setwd("C:/Users/jmr411")
@@ -387,6 +390,23 @@ apl_count <- count(cardio_stats, c("ap_lo"))
 apl_count
 #recommend dropping ap_lo > 200
 #recommend dropping ap_lo < 10
+
+#####################
+# Correlation plot
+
+#select which variables to use for corrplot
+numeric_cardio <- subset(cardio_stats, select = c(age_days, age_years, height_cm, height_m,
+                                   height_inches, height_feet, weight_kg, weight_lb, BMI,
+                                   ap_hi, ap_lo, cholesterol, gluc, smoke, alcohol, active,
+                                   cardio), na.rm = TRUE)
+c <- cor(numeric_cardio)
+
+
+#Correlation plot
+corrplot::corrplot(c, method = "square", col=brewer.pal(n=8, name="RdBu"),
+                   diag = FALSE, tl.cex = 0.7, number.cex = 0.5,
+                   type= "upper")
+
 
 
 
