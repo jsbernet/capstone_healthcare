@@ -1,4 +1,4 @@
-Please find the following R code that demonstrate how to specify different fonts. In this code I use ggplot to create a horizontal bar chart.
+Please find the following R code that demonstrates how to specify different fonts. In this code, [ggplot](https://ggplot2.tidyverse.org/index.html) is used to create a horizontal bar chart.
 
 Here is a link for [R ggthemes](https://ggplot2.tidyverse.org/reference/ggtheme.html).
 
