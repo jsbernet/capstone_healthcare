@@ -36,7 +36,7 @@ ggplot(ten_region, aes(x=reorder(region, freq), y=freq)) +
 ggsave("showtext-example-1.png", width = 10, height = 6, dpi=96)
 
 ```
-
+![first chart](showtext-example-1.png)
 
 This is the same code modified using the showtext library. The montserrat font is used.
 
@@ -91,7 +91,7 @@ ggplot(ten_region, aes(x=reorder(region, freq), y=freq)) +
 showtext_end()
 dev.off()
 ```
-
+![first chart](show2.png)
 
 I've the R script and csv file are included in this folder if you'd like to run and test on your machine.
 
