@@ -93,7 +93,7 @@ dev.off()
 ```
 ![first chart](show2.png)
 
-I've the R script and csv file are included in this folder if you'd like to run and test on your machine.
+The R script and csv file are included in this folder if you'd like to run and test on your machine.
 
 
 
