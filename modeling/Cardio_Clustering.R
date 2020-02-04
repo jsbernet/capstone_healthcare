@@ -50,7 +50,7 @@ maxClust <- 10    # Hypothesized maximum number of segments
 for (centr in minClust:maxClust) {
   i <- centr-(minClust-1) # relevels start as 1, and increases with centr
   set.seed(11) # For reproducibility
-  km.out[i] <- list(kmeans(kmeansDat.t, centers = centr, nstart = 50,algorithm="Lloyd"))
+  km.out[i] <- list(kmeans(kmeansDat.t, centers = centr, nstart = 50))
   sil.out[i] <- list(silhouette(km.out[[i]][[1]], dist(kmeansDat.t)))
   # Used for plotting silhouette average widths
   x[i] = centr  # value of k
